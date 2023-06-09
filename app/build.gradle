@@ -1,0 +1,133 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.example.apptemplate'
+    compileSdk Config.compileSDK
+
+    defaultConfig {
+        applicationId "com.example.apptemplate"
+        minSdk Config.minSDK
+        targetSdk Config.targetSDK
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled Config.minifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+
+    kotlinOptions {
+        jvmTarget = Config.JVMTarget
+    }
+
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation Dep.appCompat
+    implementation Dep.androidxCore
+    implementation Dep.androidMaterial
+    implementation Dep.constraintLayout
+    implementation project(path: ':common:common_data')
+    implementation project(path: ':common:common_utils')
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //
+
+    //play service
+    implementation PlayService.playServiceLocation
+    implementation PlayService.playServiceMap
+
+    //splash screen core
+    implementation Dep.splashScreenCore
+
+    //kotlin ktx
+    implementation KTX.collectionKTX
+    implementation KTX.fragmentKTX
+    implementation KTX.lifecycleRuntimeKTX
+    implementation KTX.lifecycleLiveDataKTX
+    implementation KTX.navigationRuntimeKTX
+    implementation KTX.navigationFragmentKTX
+    implementation KTX.navigationUIKTX
+
+    implementation KTX.lifecycleViewModelKTX
+    implementation KTX.playCoreKTX
+    implementation KTX.pagingRuntimeKTX
+
+
+    implementation platform(Firebase.firebaseBOM)
+    implementation Firebase.firebaseAnalyticsKTX
+    implementation Firebase.firebaseCrashlyticsKTX
+    implementation Firebase.firebaseMessagingKTX
+    implementation Firebase.firebasePerformanceKTX
+    implementation Firebase.firebaseInAppMessagingTX
+
+
+    implementation Glide.glide
+    kapt Glide.glideCompiler
+
+
+    implementation DaggerHilt.hilt
+    kapt DaggerHilt.hiltCompiler
+
+
+    //retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.gsonConvertor
+    implementation Retrofit.okHttp
+    implementation Retrofit.okHttpLogging
+
+    //room
+    implementation Room.roomKTX
+    implementation Room.roomRuntime
+    kapt Room.roomCompiler
+
+
+    //mine
+    implementation Misc.premadeRecyclerView
+    implementation Misc.morseUI
+    implementation Misc.waterMarkDialog
+
+
+    //image cropping library
+    implementation Misc.imageCropper
+
+    //json api deserialization
+    implementation Misc.izzyRetrofitConverter
+    implementation Misc.izzyGsonAdapter
+
+    //lottie
+    implementation Misc.lottie
+
+    //loupe
+    implementation Misc.loupe
+    implementation Misc.loupeExtensions
+}

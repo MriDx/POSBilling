@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "825260714373",
+    "project_id": "sumato-app-template",
+    "storage_bucket": "sumato-app-template.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825260714373:android:2b8594613f4c1b2c8e7cec",
+        "android_client_info": {
+          "package_name": "com.example.apptemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "825260714373-nus9k8v3q5p88odp6jmn9chgi88od6uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMi36STIzSfIfVua7ZvQjI1Ii--VMQvHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825260714373-nus9k8v3q5p88odp6jmn9chgi88od6uj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
