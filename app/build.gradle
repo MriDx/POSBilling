@@ -55,6 +55,9 @@ dependencies {
     implementation Dep.constraintLayout
     implementation project(path: ':common:common_data')
     implementation project(path: ':common:common_utils')
+    implementation project(path: ':dynamic_form')
+    //implementation project(path: ':auth')
+    implementation project(path: ':common:common_presentation')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

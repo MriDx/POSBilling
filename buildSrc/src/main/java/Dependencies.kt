@@ -5,6 +5,7 @@ object LibVersions {
     const val androidMaterial = "1.9.0"
     const val constraintLayout = "2.1.4"
     const val splashScreenCore = "1.0.1"
+    const val swipeRefreshLayout = "1.1.0"
 
 
     const val playServiceLocation = "21.0.1"
@@ -54,6 +55,8 @@ object Dep {
         "com.google.android.material:material:${LibVersions.androidMaterial}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${LibVersions.constraintLayout}"
+    const val swipeRefreshLayout =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${LibVersions.swipeRefreshLayout}"
 
     const val splashScreenCore = "androidx.core:core-splashscreen:${LibVersions.splashScreenCore}"
 
@@ -148,6 +151,7 @@ object Misc {
     const val lottie = "com.airbnb.android:lottie:${LibVersions.lottie}"
 
     const val loupe = "io.github.igreenwood.loupe:loupe:${LibVersions.loupe}"
-    const val loupeExtensions = "io.github.igreenwood.loupe:extensions:${LibVersions.loupeExtension}"
+    const val loupeExtensions =
+        "io.github.igreenwood.loupe:extensions:${LibVersions.loupeExtension}"
 
 }

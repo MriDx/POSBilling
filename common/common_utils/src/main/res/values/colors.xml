@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="green_800">#166534</color>
+    <color name="green_200">#bbf7d0</color>
+
+    <color name="red_800">#991b1b</color>
+    <color name="red_200">#fecaca</color>
+
+</resources>

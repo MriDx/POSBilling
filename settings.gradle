@@ -17,3 +17,6 @@ rootProject.name = "AppTemplate"
 include ':app'
 include ':common:common_data'
 include ':common:common_utils'
+include ':dynamic_form'
+include ':image_crop'
+include ':common:common_presentation'

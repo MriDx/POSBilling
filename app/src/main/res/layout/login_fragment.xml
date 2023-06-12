@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- <androidx.core.widget.NestedScrollView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">-->
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!--<com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:srcCompat="@mipmap/ic_launcher_round"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/welcomeText"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintVertical_bias="1"
+                android:layout_marginBottom="24dp"
+                />-->
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/welcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3"
+                tools:text="Welcome \nIRRIGATION ASSAM" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/taglineText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/welcomeText"
+                app:layout_constraintVertical_bias="0"
+                tools:text="Building the nation with pride" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginFieldLayout"
+                style="?attr/textInputOutlinedDenseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taglineText"
+                app:layout_constraintVertical_bias="0"
+                removeError="@{true}"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:focusedByDefault="false"
+                    android:hint="Email or Login ID"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textEmailAddress"
+                    android:maxLines="1"
+                    tools:ignore="UnusedAttribute" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordFieldLayout"
+                style="?attr/textInputOutlinedDenseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginFieldLayout"
+                app:layout_constraintVertical_bias="0"
+                app:passwordToggleEnabled="true"
+                removeError="@{true}"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:imeOptions="actionGo"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginBtn"
+                style="?attr/colorButtonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Log in"
+                android:textStyle="normal"
+                app:cornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/passwordFieldLayout"
+                app:layout_constraintVertical_bias="0"
+                app:progressColor="@color/white"
+                app:showProgressbar="false" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/privacyPolicyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginBtn"
+                app:layout_constraintVertical_bias="0"
+                tools:text="By Logging in You Accept Terms of Use and Privacy Policy" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/poweredByView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/privacyPolicyBtn"
+                app:layout_constraintVertical_bias="0.9"
+                tools:text="Powered by Sumato Globaltech Pvt. Ltd." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>
