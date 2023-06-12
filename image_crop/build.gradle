@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'dev.mridx.image_crop'
+    compileSdk Config.compileSDK
+
+    defaultConfig {
+        minSdk Config.minSDK
+        targetSdk Config.targetSDK
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled Config.minifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = Config.JVMTarget
+    }
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+
+
+    implementation Dep.appCompat
+    implementation Dep.androidxCore
+    implementation Dep.androidMaterial
+    implementation Dep.constraintLayout
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    //hilt
+    implementation DaggerHilt.hilt
+    kapt DaggerHilt.hiltCompiler
+
+    //image crop
+    implementation Misc.imageCropper
+
+    //lifecycle
+    implementation KTX.lifecycleRuntimeKTX
+    implementation KTX.lifecycleViewModelKTX
+
+
+    //common utils
+    implementation project(path: ':common:common_utils')
+
+
+}

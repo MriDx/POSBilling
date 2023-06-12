@@ -117,6 +117,43 @@ object CommonModule {
             chain.proceed(commonRequest)
         }
     }
+/*
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        @AuthInterceptor authInterceptor: Interceptor,
+        @CommonInterceptor commonInterceptor: Interceptor,
+    ): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            if (true)
+                addInterceptor(loggingInterceptor)
+            addInterceptor(authInterceptor)
+            addInterceptor(commonInterceptor)
+            callTimeout(600, TimeUnit.SECONDS)
+            readTimeout(600, TimeUnit.SECONDS)
+            connectTimeout(10000, TimeUnit.SECONDS)
+            build()
+        }.build()
+
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(
+        @ApiBaseUrl apiBaseUrl: String,
+        okHttpClient: OkHttpClient,
+        annotatedConverter: AnnotatedConverter,
+    ): Retrofit {
+        return Retrofit.Builder().apply {
+            baseUrl(apiBaseUrl)
+            client(okHttpClient)
+            addConverterFactory(annotatedConverter)
+        }.build()
+    }
+*/
 
 
     @Singleton

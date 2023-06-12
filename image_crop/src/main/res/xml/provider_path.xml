@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+
+    <external-path
+        name="external_files"
+        path="." />
+
+    <files-path
+        name="files_dir"
+        path="." />
+    <external-cache-path
+        name="cache_path"
+        path="."
+        />
+    <cache-path
+        name="cached_files"
+        path="." />
+
+    <files-path
+        name="cropper"
+        path="cropper-internal/" />
+    <external-files-path
+        name="my_images"
+        path="/" />
+    <files-path
+        name="images"
+        path="." />
+
+</paths>
