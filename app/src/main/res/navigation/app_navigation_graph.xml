@@ -2,11 +2,46 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/app_navigation_graph"
-    app:startDestination="@id/loginFragment">
-
-
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.apptemplate.presentation.auth.fragment.login_fragment.LoginFragment"
-        android:label="LoginFragment" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.apptemplate.presentation.app.fragment.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.apptemplate.presentation.app.fragment.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_logoutFragment"
+            app:destination="@id/logoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.apptemplate.presentation.user.fragment.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.apptemplate.presentation.app.fragment.web_view.WebViewFragment"
+        android:label="{title}">
+        <argument
+            android:name="webViewModel"
+            app:argType="com.example.apptemplate.data.local.model.web_view.WebViewModel" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <dialog
+        android:id="@+id/logoutFragment"
+        android:name="com.example.apptemplate.presentation.auth.fragment.logout.LogoutFragment"
+        android:label="LogoutFragment" />
 </navigation>

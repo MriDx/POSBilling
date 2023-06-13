@@ -14,7 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import com.example.apptemplate.R
-import com.example.apptemplate.databinding.AppActivityBinding
+import com.example.apptemplate.databinding.AuthActivityBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.AppPreference
@@ -27,7 +27,7 @@ import javax.inject.Inject
 class AuthActivity : BaseActivity() {
 
 
-    private lateinit var binding: AppActivityBinding
+    private lateinit var binding: AuthActivityBinding
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -45,11 +45,12 @@ class AuthActivity : BaseActivity() {
 
 
         binding =
-            DataBindingUtil.setContentView<AppActivityBinding?>(this, R.layout.app_activity).apply {
-                setLifecycleOwner { lifecycle }
-            }
+            DataBindingUtil.setContentView<AuthActivityBinding?>(this, R.layout.app_activity)
+                .apply {
+                    setLifecycleOwner { lifecycle }
+                }
 
-        setSupportActionBar(binding.appBar.toolbar)
+        setSupportActionBar(binding.appbar.toolbar)
 
         message = intent?.getStringExtra("message")
 
@@ -76,20 +77,20 @@ class AuthActivity : BaseActivity() {
 
         appBarConfiguration = AppBarConfiguration.Builder().build()
 
-        binding.appBar.toolbar.setupWithNavController(
+        binding.appbar.toolbar.setupWithNavController(
             navController = navController,
             configuration = appBarConfiguration
         )
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            TransitionManager.beginDelayedTransition(binding.appBar.toolbar, Fade())
+            TransitionManager.beginDelayedTransition(binding.appbar.toolbar, Fade())
             when (destination.id) {
                 R.id.loginFragment -> {
-                    binding.appBar.toolbar.isVisible = false
+                    binding.appbar.toolbar.isVisible = false
                 }
 
                 else -> {
-                    binding.appBar.toolbar.isVisible = true
+                    binding.appbar.toolbar.isVisible = true
                 }
             }
         }

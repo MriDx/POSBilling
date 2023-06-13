@@ -12,4 +12,12 @@ data class ActionModel(
     @DrawableRes val icon: Int,
     val id: String,
     var supportingText: String? = null,
-) : Parcelable
+    var isBlank: Boolean = false,
+) : Parcelable {
+
+
+    companion object {
+        fun blankModel() = ActionModel("", -1, "", "", true)
+    }
+
+}

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.core.os.bundleOf
+import com.example.apptemplate.BuildConfig
 import com.example.apptemplate.presentation.auth.activity.AuthActivity
 import dagger.Module
 import dagger.Provides
@@ -23,6 +24,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
 
 
 @Module
@@ -70,14 +72,13 @@ object AppModule {
         @CommonInterceptor commonInterceptor: Interceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
-            if (true)
+            if (BuildConfig.DEBUG)
                 addInterceptor(loggingInterceptor)
             addInterceptor(authInterceptor)
             addInterceptor(commonInterceptor)
             callTimeout(600, TimeUnit.SECONDS)
             readTimeout(600, TimeUnit.SECONDS)
             connectTimeout(10000, TimeUnit.SECONDS)
-            build()
         }.build()
 
     }

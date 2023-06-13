@@ -1,4 +1,4 @@
-package com.example.apptemplate.presentation.auth.fragment.login_fragment.event
+package com.example.apptemplate.presentation.auth.fragment.login.event
 
 import org.json.JSONObject
 

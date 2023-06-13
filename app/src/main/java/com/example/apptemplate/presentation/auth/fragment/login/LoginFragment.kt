@@ -1,4 +1,4 @@
-package com.example.apptemplate.presentation.auth.fragment.login_fragment
+package com.example.apptemplate.presentation.auth.fragment.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.core.text.underline
 import androidx.fragment.app.viewModels
 import com.example.apptemplate.R
 import com.example.apptemplate.databinding.LoginFragmentBinding
-import com.example.apptemplate.presentation.auth.fragment.login_fragment.event.LoginFragmentEvent
-import com.example.apptemplate.presentation.auth.fragment.login_fragment.vm.LoginFragmentViewModel
+import com.example.apptemplate.presentation.auth.fragment.login.event.LoginFragmentEvent
+import com.example.apptemplate.presentation.auth.fragment.login.vm.LoginFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.BaseUrl
 import dev.mridx.common_presentation.dialog.bottom_loading.BottomLoadingDialog
