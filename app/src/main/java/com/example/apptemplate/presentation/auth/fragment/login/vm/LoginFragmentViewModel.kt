@@ -1,9 +1,9 @@
-package com.example.apptemplate.presentation.auth.fragment.login_fragment.vm
+package com.example.apptemplate.presentation.auth.fragment.login.vm
 
 import androidx.lifecycle.viewModelScope
 import com.example.apptemplate.domain.use_case.auth.AuthUseCase
-import com.example.apptemplate.presentation.auth.fragment.login_fragment.event.LoginFragmentEvent
-import com.example.apptemplate.presentation.auth.fragment.login_fragment.state.LoginFragmentState
+import com.example.apptemplate.presentation.auth.fragment.login.event.LoginFragmentEvent
+import com.example.apptemplate.presentation.auth.fragment.login.state.LoginFragmentState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.mridx.common_presentation.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers

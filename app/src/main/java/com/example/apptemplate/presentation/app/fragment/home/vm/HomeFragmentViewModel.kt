@@ -1,8 +1,8 @@
 package com.example.apptemplate.presentation.app.fragment.home.vm
 
 import androidx.lifecycle.viewModelScope
-import com.example.apptemplate.domain.repository.user.UserRepository
 import com.example.apptemplate.domain.use_case.home.HomeFragmentUseCase
+import com.example.apptemplate.domain.use_case.user.UserUseCase
 import com.example.apptemplate.presentation.app.fragment.home.event.HomeFragmentEvent
 import com.example.apptemplate.presentation.app.fragment.home.state.HomeFragmentState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeFragmentViewModel @Inject constructor(
     private val homeFragmentUseCase: HomeFragmentUseCase,
-    private val userRepository: UserRepository,
+    private val userUseCase: UserUseCase,
 ) : BaseViewModel<HomeFragmentEvent, HomeFragmentState>() {
 
 
@@ -44,7 +44,7 @@ class HomeFragmentViewModel @Inject constructor(
 
     private fun fetchLocalUser() {
         viewModelScope.launch(Dispatchers.IO) {
-            val userModel = userRepository.fetchLocalUser()
+            val userModel = userUseCase.getLocalUser()
 
             sendState(state = HomeFragmentState.UserFetched(userModel))
 

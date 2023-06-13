@@ -32,7 +32,7 @@ class AppActivity : BaseActivity() {
                 lifecycleOwner = this@AppActivity
             }
 
-        setSupportActionBar(binding.appBar.toolbar)
+        setSupportActionBar(binding.appbar.toolbar)
 
         setupNavigation()
 
@@ -44,7 +44,7 @@ class AppActivity : BaseActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
 
-        binding.appBar.toolbar.setupWithNavController(
+        binding.appbar.toolbar.setupWithNavController(
             navController = navController, configuration = appBarConfiguration
         )
 
