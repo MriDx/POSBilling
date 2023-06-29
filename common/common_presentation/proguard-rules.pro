@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn java.lang.invoke.StringConcatFactory
+
+#ParametrizedType ClassCastException error fix
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.** { *; }
