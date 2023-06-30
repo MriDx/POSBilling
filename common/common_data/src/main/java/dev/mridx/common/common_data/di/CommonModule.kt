@@ -167,7 +167,7 @@ object CommonModule {
     @Singleton
     @Provides
     @PermissionPreference
-    fun providePermissionPreferences(@ApplicationContext context: Context): SharedPreferences =
+    fun providePermissionSharedPreferences(@ApplicationContext context: Context): SharedPreferences =
         context.getSharedPreferences(PERMISSION_SHARED_PREF, Context.MODE_PRIVATE)
 
 

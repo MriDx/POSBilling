@@ -1,13 +1,20 @@
 package com.example.apptemplate.presentation.app.fragment.home
 
 import android.Manifest
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -25,18 +32,27 @@ import com.example.apptemplate.presentation.app.fragment.home.state.HomeFragment
 import com.example.apptemplate.presentation.app.fragment.home.vm.HomeFragmentViewModel
 import com.example.apptemplate.presentation.app.fragment.notification.permission.NotificationPermissionFragment
 import dagger.hilt.android.AndroidEntryPoint
+import dev.mridx.common.common_data.di.qualifier.PermissionPreference
+import dev.mridx.common.common_utils.constants.Permissions
 import dev.mridx.common.common_utils.presentation_utils.PlaceHolderDrawableHelper
 import dev.mridx.common_presentation.fragment.base.BaseFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private val viewModel by viewModels<HomeFragmentViewModel>()
+
+
+    @Inject
+    @PermissionPreference
+    lateinit var permissionSharedPreference: SharedPreferences
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,6 +90,24 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         }
 
 
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.home_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.notificationBtn -> {
+
+                    }
+                }
+                return true
+            }
+        }, viewLifecycleOwner)
+
+
         /*binding.surveyBtn.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHoardingSurveyFragment())
         }*/
@@ -85,6 +119,16 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private fun checkNotificationPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return
+        }
+
+        Log.d("mridx", "checkNotificationPermission: ${permissionSharedPreference.all}")
+
+        if (permissionSharedPreference.getBoolean(
+                Permissions.NOTIFICATION_PERMISSION_PROMPT,
+                false
+            )
+        ) {
             return
         }
         if (ContextCompat.checkSelfPermission(
@@ -157,9 +201,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private fun handleActionClicked(actionModel: ActionModel) {
         when (actionModel.id) {
-           /* "hoarding_survey" -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHoardingSurveyFragment())
-            }*/
+            /* "hoarding_survey" -> {
+                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHoardingSurveyFragment())
+             }*/
         }
     }
 

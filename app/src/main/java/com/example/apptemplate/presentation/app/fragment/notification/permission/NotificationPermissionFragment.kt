@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,6 +65,9 @@ class NotificationPermissionFragment : BottomSheetDialogFragment() {
         }
 
         binding.skipBtn.setOnClickListener {
+            permissionSharedPreference.edit {
+                putBoolean(Permissions.NOTIFICATION_PERMISSION_PROMPT, true)
+            }
             dismiss()
         }
 
@@ -92,6 +96,8 @@ class NotificationPermissionFragment : BottomSheetDialogFragment() {
                 return
             }*/
 
+            Log.d("mridx", "checkPermission: ${permissionSharedPreference.all}")
+
             if (permissionSharedPreference.getBoolean(Permissions.NOTIFICATION_PERMISSION, false)) {
 
                 //ask to enable from app settings
@@ -103,13 +109,16 @@ class NotificationPermissionFragment : BottomSheetDialogFragment() {
                     showNegativeBtn = true,
                     cancellable = false
                 ) { d, i ->
-                    d.dismiss()
                     if (i == POSITIVE_BTN) {
                         //
                         appSettings(packageName = BuildConfig.APPLICATION_ID)
                     } else {
-                        //
+                        // store that user skipped the prompt
+                        permissionSharedPreference.edit {
+                            putBoolean(Permissions.NOTIFICATION_PERMISSION_PROMPT, true)
+                        }
                     }
+                    d.dismiss()
                 }.show()
                 return
 

@@ -138,6 +138,18 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <include
+                    android:id="@+id/notificationDetailsView"
+                    layout="@layout/notification_details_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:visibility="gone"
+                    />
+
+
                 <com.mridx.morse.element.BannerView
                     android:id="@+id/bannerView"
                     android:layout_width="match_parent"
