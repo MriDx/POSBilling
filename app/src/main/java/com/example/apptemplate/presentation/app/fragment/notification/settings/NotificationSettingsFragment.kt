@@ -82,10 +82,6 @@ class NotificationSettingsFragment : BaseFragment<NotificationSettingsFragmentBi
 
 
     private fun handleNotificationSwitch(isChecked: Boolean) {
-        // TODO: check if permission allowed already
-        // TODO: if allowed just change the state of the button
-        // TODO: if not, ask permission
-
 
         if (!isChecked) {
             permissionSharedPreference.edit {
