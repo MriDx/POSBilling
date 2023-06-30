@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_logoutFragment"
             app:destination="@id/logoutFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_notificationSettingsFragment"
+            app:destination="@id/notificationSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -44,4 +47,8 @@
         android:id="@+id/logoutFragment"
         android:name="com.example.apptemplate.presentation.auth.fragment.logout.LogoutFragment"
         android:label="LogoutFragment" />
+    <fragment
+        android:id="@+id/notificationSettingsFragment"
+        android:name="com.example.apptemplate.presentation.app.fragment.notification.settings.NotificationSettingsFragment"
+        android:label="Notification Settings" />
 </navigation>
