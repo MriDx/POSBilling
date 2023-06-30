@@ -137,6 +137,10 @@ class SettingsFragment : BaseFragment<SettingsFragmentBinding>() {
                 findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToLogoutFragment())
             }
 
+            "notification" -> {
+                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToNotificationSettingsFragment())
+            }
+
             "privacy_policy" -> {
                 findNavController().navigate(
                     SettingsFragmentDirections.actionSettingsFragmentToWebViewFragment(

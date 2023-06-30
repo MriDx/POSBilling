@@ -34,6 +34,13 @@ class SettingsFragmentRepositoryImpl @Inject constructor() : SettingsFragmentRep
                     ),
                     ActionModel.blankModel(),
                     ActionModel(
+                        heading = "Notification",
+                        icon = R.drawable.baseline_notifications_none_24,
+                        id = "notification",
+                        supportingText = "Manage notification settings.",
+                    ),
+                    //ActionModel.blankModel(),
+                    ActionModel(
                         heading = "Privacy Policy",
                         icon = R.drawable.ic_outline_privacy_tip_24,
                         id = "privacy_policy",

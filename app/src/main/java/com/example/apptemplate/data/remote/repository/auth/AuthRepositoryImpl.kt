@@ -1,6 +1,7 @@
 package com.example.apptemplate.data.remote.repository.auth
 
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.core.content.edit
 import com.example.apptemplate.data.remote.model.auth.AuthResponseModel
 import com.example.apptemplate.data.remote.web_service.auth.AuthApiHelper
@@ -12,7 +13,9 @@ import dev.mridx.common.common_data.data.constants.ACCESS_TOKEN
 import dev.mridx.common.common_data.data.remote.model.NetworkResource
 import dev.mridx.common.common_data.data.remote.model.ResponseModel
 import dev.mridx.common.common_data.di.qualifier.AppPreference
+import dev.mridx.common.common_data.di.qualifier.PermissionPreference
 import dev.mridx.common.common_data.utils.toRequestBody
+import dev.mridx.common.common_utils.constants.Permissions
 import dev.mridx.common.common_utils.utils.parseException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -25,6 +28,8 @@ class AuthRepositoryImpl @Inject constructor(
     private val userUseCase: UserUseCase,
     @AppPreference
     private val appSharedPreferences: SharedPreferences,
+    @PermissionPreference
+    private val permissionSharedPreferences: SharedPreferences,
 ) : AuthRepository {
 
 
@@ -68,6 +73,22 @@ class AuthRepositoryImpl @Inject constructor(
                 }
 
                 userUseCase.storeLocalUser(authUserModel = userDetailsResponse.data!!.data!!)
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                    permissionSharedPreferences.edit {
+                        putBoolean(Permissions.NOTIFICATION_ENABLED, true)
+                    }
+                } else {
+                    val notificationEnabled =
+                        permissionSharedPreferences.getBoolean(
+                            Permissions.NOTIFICATION_ENABLED,
+                            false
+                        )
+
+                    permissionSharedPreferences.edit {
+                        putBoolean(Permissions.NOTIFICATION_ENABLED, notificationEnabled)
+                    }
+                }
 
                 NetworkResource.success(data = response.body()!!)
 
