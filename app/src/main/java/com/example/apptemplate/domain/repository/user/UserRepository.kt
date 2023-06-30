@@ -14,5 +14,7 @@ interface UserRepository : BaseRepository {
 
     suspend fun fetchLocalUser(): UserModel
 
+    suspend fun clearUserData()
+
 
 }

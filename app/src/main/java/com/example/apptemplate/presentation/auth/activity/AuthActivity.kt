@@ -45,7 +45,7 @@ class AuthActivity : BaseActivity() {
 
 
         binding =
-            DataBindingUtil.setContentView<AuthActivityBinding?>(this, R.layout.app_activity)
+            DataBindingUtil.setContentView<AuthActivityBinding?>(this, R.layout.auth_activity)
                 .apply {
                     setLifecycleOwner { lifecycle }
                 }

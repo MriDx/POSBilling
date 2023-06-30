@@ -12,7 +12,7 @@ import javax.inject.Inject
 class SettingsFragmentRepositoryImpl @Inject constructor() : SettingsFragmentRepository {
 
 
-    override suspend fun FetchActions(): SettingsFragmentModel {
+    override suspend fun fetchActions(): SettingsFragmentModel {
         return withContext(Dispatchers.IO) {
 
             val settingsFragmentModel = SettingsFragmentModel()

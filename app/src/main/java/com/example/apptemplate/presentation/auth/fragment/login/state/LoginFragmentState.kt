@@ -7,7 +7,7 @@ import dev.mridx.common.common_data.data.remote.model.ResponseModel
 sealed class LoginFragmentState {
 
     data class LoginResponse(
-        val response: NetworkResource<ResponseModel<AuthResponseModel>>? = null,
+        val response: NetworkResource<ResponseModel<AuthResponseModel>>,
         val message: String? = null
     ) : LoginFragmentState()
 }

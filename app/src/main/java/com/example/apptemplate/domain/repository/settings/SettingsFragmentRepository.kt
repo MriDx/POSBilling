@@ -5,6 +5,6 @@ import dev.mridx.common.common_data.domain.repository.BaseRepository
 
 interface SettingsFragmentRepository : BaseRepository {
 
-    suspend fun FetchActions(): SettingsFragmentModel
+    suspend fun fetchActions(): SettingsFragmentModel
 
 }

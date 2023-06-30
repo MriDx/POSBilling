@@ -22,4 +22,8 @@ class UserUseCase @Inject constructor(private val userRepository: UserRepository
         return userRepository.fetchLocalUser()
     }
 
+    suspend fun clearUserData() {
+        userRepository.clearUserData()
+    }
+
 }

@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.apptemplate.presentation.app.fragment.settings.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="Settings">
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.apptemplate.presentation.user.fragment.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="Profile" />
     <fragment
         android:id="@+id/webViewFragment"
         android:name="com.example.apptemplate.presentation.app.fragment.web_view.WebViewFragment"

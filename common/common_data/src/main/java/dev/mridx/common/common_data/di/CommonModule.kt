@@ -11,6 +11,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import dev.mridx.common.common_data.BuildConfig
 import dev.mridx.common.common_data.data.constants.ACCESS_TOKEN
 import dev.mridx.common.common_data.data.constants.APP_SHARED_PREF
 import dev.mridx.common.common_data.data.constants.PERMISSION_SHARED_PREF
@@ -37,7 +38,7 @@ object CommonModule {
     @Singleton
     @BaseUrl
     fun provideBaseUrl(): String =
-        if (true) "http://jjm.sumato.tech/" else "http://jjm.sumato.tech/"
+        if (BuildConfig.DEBUG) "http://hoarding.sumato.tech/" else "http://hoarding.sumato.tech/"
     //if (BuildConfig.DEBUG) "https://adcb-2405-201-a802-1833-35c0-2ab2-87d0-f7bb.ngrok-free.app/" else "https://irrigationassam.in/"
 
 
