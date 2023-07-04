@@ -60,6 +60,9 @@ dependencies {
 
     implementation KTX.lifecycleViewModelKTX
 
+    //play service
+    implementation PlayService.playServiceLocation
+
 
     //common data
     implementation project(path: ':common:common_data')
