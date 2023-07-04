@@ -57,6 +57,9 @@ dependencies {
     implementation Retrofit.okHttp
     implementation Retrofit.okHttpLogging
 
+    //
+    implementation PlayService.playServiceLocation
+
 
     //json api deserialization
     implementation Misc.izzyRetrofitConverter
