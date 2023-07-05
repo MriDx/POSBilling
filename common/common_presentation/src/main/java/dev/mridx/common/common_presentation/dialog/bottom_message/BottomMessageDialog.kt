@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.dialog.bottom_message
+package dev.mridx.common.common_presentation.dialog.bottom_message
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import dev.mridx.common_presentation.databinding.BottomMessageDialogBinding
-import dev.mridx.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
-import dev.mridx.common_presentation.fragment.builder.FragmentBuilder
+import dev.mridx.common.common_presentation.databinding.BottomMessageDialogBinding
+import dev.mridx.common.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
+import dev.mridx.common.common_presentation.fragment.builder.FragmentBuilder
 
 
 class BottomMessageDialog : RoundedDialogFragment() {

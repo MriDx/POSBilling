@@ -5,7 +5,7 @@ import com.example.apptemplate.domain.use_case.settings.GetSettingsFragmentActio
 import com.example.apptemplate.presentation.app.fragment.settings.event.SettingsFragmentEvent
 import com.example.apptemplate.presentation.app.fragment.settings.state.SettingsFragmentState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.mridx.common_presentation.vm.base.BaseViewModel
+import dev.mridx.common.common_presentation.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -26,8 +26,8 @@ import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.BaseUrl
 import dev.mridx.common.common_utils.utils.errorSnackbar
-import dev.mridx.common_presentation.dialog.bottom_loading.BottomLoadingDialog
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.dialog.bottom_loading.BottomLoadingDialog
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject

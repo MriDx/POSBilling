@@ -12,7 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.apptemplate.R
 import com.example.apptemplate.databinding.AppActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
-import dev.mridx.common_presentation.activity.base.BaseActivity
+import dev.mridx.common.common_presentation.activity.BaseActivity
 
 
 @AndroidEntryPoint

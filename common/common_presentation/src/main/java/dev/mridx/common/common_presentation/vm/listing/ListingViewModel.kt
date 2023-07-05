@@ -1,8 +1,8 @@
-package dev.mridx.common_presentation.vm.listing
+package dev.mridx.common.common_presentation.vm.listing
 
 import androidx.lifecycle.viewModelScope
 import dev.mridx.common.common_data.data.local.model.ui_error.UIErrorModel
-import dev.mridx.common_presentation.vm.base.BaseViewModel
+import dev.mridx.common.common_presentation.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

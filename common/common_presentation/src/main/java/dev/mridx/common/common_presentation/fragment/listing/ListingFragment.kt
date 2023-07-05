@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.fragment.listing
+package dev.mridx.common.common_presentation.fragment.listing
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.mridx.common.common_data.data.local.model.ui_error.UIErrorModel
-import dev.mridx.common_presentation.databinding.ListingFragmentBinding
-import dev.mridx.common_presentation.fragment.base.BaseFragment
-import dev.mridx.common_presentation.vm.listing.ListingViewModel
+import dev.mridx.common.common_presentation.databinding.ListingFragmentBinding
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.vm.listing.ListingViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

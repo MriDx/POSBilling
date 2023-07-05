@@ -23,7 +23,7 @@ import com.example.apptemplate.presentation.app.fragment.settings.vm.SettingsFra
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.BaseUrl
 import dev.mridx.common.common_utils.utils.isNotNull
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject

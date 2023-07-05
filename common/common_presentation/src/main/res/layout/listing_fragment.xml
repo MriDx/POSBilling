@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="dev.mridx.common_presentation.vm.listing.ListingViewModel" />
+            type="dev.mridx.common.common_presentation.vm.listing.ListingViewModel" />
 
     </data>
 

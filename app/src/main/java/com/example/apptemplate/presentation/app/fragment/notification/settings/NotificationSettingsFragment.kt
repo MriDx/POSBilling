@@ -19,7 +19,7 @@ import com.example.apptemplate.databinding.NotificationSettingsFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.PermissionPreference
 import dev.mridx.common.common_utils.constants.Permissions
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint

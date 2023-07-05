@@ -14,7 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.apptemplate.data.local.model.web_view.WebViewModel
 import com.example.apptemplate.databinding.WebViewFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 
 @AndroidEntryPoint
 class WebViewFragment : BaseFragment<WebViewFragmentBinding>() {

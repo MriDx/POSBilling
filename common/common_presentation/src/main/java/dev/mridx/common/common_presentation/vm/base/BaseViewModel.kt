@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.vm.base
+package dev.mridx.common.common_presentation.vm.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Dispatchers

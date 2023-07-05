@@ -35,7 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.PermissionPreference
 import dev.mridx.common.common_utils.constants.Permissions
 import dev.mridx.common.common_utils.presentation_utils.PlaceHolderDrawableHelper
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

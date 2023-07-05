@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_utils.utils.errorSnackbar
 import dev.mridx.common.common_utils.utils.startActivity
-import dev.mridx.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
+import dev.mridx.common.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

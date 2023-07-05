@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.dialog.bottom_loading
+package dev.mridx.common.common_presentation.dialog.bottom_loading
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import dev.mridx.common_presentation.databinding.BottomLoadingDialogBinding
-import dev.mridx.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
+import dev.mridx.common.common_presentation.databinding.BottomLoadingDialogBinding
+import dev.mridx.common.common_presentation.dialog.rounded_dialog.RoundedDialogFragment
 
 class BottomLoadingDialog : RoundedDialogFragment() {
 

@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.fragment.permission_launcher
+package dev.mridx.common.common_presentation.fragment.permission_launcher
 
 import android.content.Intent
 import android.net.Uri
@@ -8,7 +8,7 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.common.api.ResolvableApiException
 import dev.mridx.common.common_data.data.local.model.gps_result.GpsResult
-import dev.mridx.common_presentation.fragment.base.BaseFragment
+import dev.mridx.common.common_presentation.fragment.base.BaseFragment
 
 abstract class PermissionLauncherFragment<ViewBinding> : BaseFragment<ViewBinding>() {
 

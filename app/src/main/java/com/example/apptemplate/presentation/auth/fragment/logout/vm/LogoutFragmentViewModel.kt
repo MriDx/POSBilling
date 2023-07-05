@@ -5,7 +5,7 @@ import com.example.apptemplate.domain.use_case.auth.AuthUseCase
 import com.example.apptemplate.presentation.auth.fragment.logout.event.LogoutFragmentEvent
 import com.example.apptemplate.presentation.auth.fragment.logout.state.LogoutFragmentState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.mridx.common_presentation.vm.base.BaseViewModel
+import dev.mridx.common.common_presentation.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject

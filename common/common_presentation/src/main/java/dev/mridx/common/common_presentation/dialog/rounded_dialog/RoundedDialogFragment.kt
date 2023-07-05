@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.dialog.rounded_dialog
+package dev.mridx.common.common_presentation.dialog.rounded_dialog
 
 import android.app.Dialog
 import android.os.Bundle

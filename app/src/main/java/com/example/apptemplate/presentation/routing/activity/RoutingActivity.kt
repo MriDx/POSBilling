@@ -19,7 +19,7 @@ import dev.mridx.common.common_data.di.qualifier.AppPreference
 import dev.mridx.common.common_utils.utils.POSITIVE_BTN
 import dev.mridx.common.common_utils.utils.showDialog
 import dev.mridx.common.common_utils.utils.startActivity
-import dev.mridx.common_presentation.activity.base.BaseActivity
+import dev.mridx.common.common_presentation.activity.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -7,11 +7,11 @@ plugins {
 
 android {
     namespace 'dev.mridx.common.common_utils'
-    compileSdk 33
+    compileSdk buildConfig.compileSdk
 
     defaultConfig {
-        minSdk 21
-        targetSdk 33
+        minSdk buildConfig.minSdk
+        targetSdk buildConfig.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -19,8 +19,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled buildConfig.minifyEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled buildConfig.multiDexEnabled
         }
     }
     compileOptions {
@@ -28,7 +29,7 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = buildConfig.jvmTarget
     }
     dataBinding {
         enabled true

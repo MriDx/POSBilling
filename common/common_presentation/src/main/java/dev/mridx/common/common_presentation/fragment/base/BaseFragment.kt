@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.fragment.base
+package dev.mridx.common.common_presentation.fragment.base
 
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

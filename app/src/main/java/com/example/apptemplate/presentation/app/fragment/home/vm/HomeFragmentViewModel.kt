@@ -6,7 +6,7 @@ import com.example.apptemplate.domain.use_case.user.UserUseCase
 import com.example.apptemplate.presentation.app.fragment.home.event.HomeFragmentEvent
 import com.example.apptemplate.presentation.app.fragment.home.state.HomeFragmentState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.mridx.common_presentation.vm.base.BaseViewModel
+import dev.mridx.common.common_presentation.vm.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject

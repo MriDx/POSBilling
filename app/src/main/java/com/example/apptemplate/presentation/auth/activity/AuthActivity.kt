@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.di.qualifier.AppPreference
 import dev.mridx.common.common_utils.utils.infoSnackbar
-import dev.mridx.common_presentation.activity.base.BaseActivity
+import dev.mridx.common.common_presentation.activity.BaseActivity
 import javax.inject.Inject
 
 

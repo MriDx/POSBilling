@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.fragment.builder
+package dev.mridx.common.common_presentation.fragment.builder
 
 abstract class FragmentBuilder<T> {
 

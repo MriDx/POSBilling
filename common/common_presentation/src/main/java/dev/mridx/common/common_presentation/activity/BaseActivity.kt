@@ -1,4 +1,4 @@
-package dev.mridx.common_presentation.activity.base
+package dev.mridx.common.common_presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 
