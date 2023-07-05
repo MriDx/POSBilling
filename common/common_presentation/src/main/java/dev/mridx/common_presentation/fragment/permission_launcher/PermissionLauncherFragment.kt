@@ -29,10 +29,19 @@ abstract class PermissionLauncherFragment<ViewBinding> : BaseFragment<ViewBindin
             permissionsResults(permissions = grantedPermissions)
         }
 
-    open fun permissionsResults(permissions: Map<String, Boolean>) {
+    /**
+     * override this function to handle permission request results
+     * @param permissions
+     *
+     */
+    abstract fun permissionsResults(permissions: Map<String, Boolean>)
 
-    }
-
+    /**
+     * request permissions by calling this function
+     *
+     * @param permissions
+     *
+     */
     open fun requestPermissions(permissions: Array<String>) {
         requestPermissionsLauncher.launch(permissions)
     }
@@ -55,9 +64,13 @@ abstract class PermissionLauncherFragment<ViewBinding> : BaseFragment<ViewBindin
             onAppSettingsActivityResult(it)
         }
 
-    open fun onAppSettingsActivityResult(activityResult: ActivityResult) {
-
-    }
+    /**
+     * override to handle app settings activity result
+     *
+     * @param activityResult
+     *
+     */
+    abstract fun onAppSettingsActivityResult(activityResult: ActivityResult)
 
     open fun launchAppSettings(packageName: String) {
         appSettingsLauncher.launch(Intent().apply {
@@ -72,10 +85,17 @@ abstract class PermissionLauncherFragment<ViewBinding> : BaseFragment<ViewBindin
             onGpsExceptionActivityResult(it)
         }
 
-    open fun onGpsExceptionActivityResult(activityResult: ActivityResult) {
+    /**
+     * override this function to handle gps exception resolve activity result.
+     *
+     * @param activityResult
+     *
+     */
+    abstract fun onGpsExceptionActivityResult(activityResult: ActivityResult)
 
-    }
-
+    /**
+     * this is handle the gps exception
+     */
     open fun handleGPSException(gpsResult: GpsResult): Boolean {
         var handled = false
         (gpsResult.exception as? ResolvableApiException)?.resolution?.intentSender?.let {
