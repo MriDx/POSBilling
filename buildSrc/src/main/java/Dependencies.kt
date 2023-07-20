@@ -17,6 +17,7 @@ object LibVersions {
     const val lifecycleKTX = "2.6.0-alpha02"
     const val navigationKTX = "2.5.3"
     const val pagingKTX = "3.1.1"
+    const val workRuntime = "2.8.1"
 
 
     const val firebaseBOM = "31.1.0"
@@ -24,12 +25,14 @@ object LibVersions {
     const val glide = "4.13.0"
 
     const val hilt = "2.44"
+    const val hiltWorker = "1.0.0"
+    const val hiltAndroidx = "1.0.0"
 
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.2"
     const val gson = "2.9.0"
 
-    const val room = "2.4.3"
+    const val room = "2.5.2"
 
     const val premadeRecyclerView = "1.3"
     const val morseUI = "1.1"
@@ -84,6 +87,8 @@ object KTX {
     const val playCoreKTX = "com.google.android.play:core-ktx:${LibVersions.playCoreKTX}"
     const val pagingRuntimeKTX = "androidx.paging:paging-runtime-ktx:${LibVersions.pagingKTX}"
 
+    const val workRuntimeKTX = "androidx.work:work-runtime-ktx:${LibVersions.workRuntime}"
+
     const val navigationRuntimeKTX =
         "androidx.navigation:navigation-runtime-ktx:${LibVersions.navigationKTX}"
     const val navigationFragmentKTX =
@@ -105,6 +110,8 @@ object DaggerHilt {
 
     const val hilt = "com.google.dagger:hilt-android:${LibVersions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${LibVersions.hilt}"
+    const val hiltWorkManager = "androidx.hilt:hilt-work:${LibVersions.hiltWorker}"
+    const val hiltAndroidxCompiler = "androidx.hilt:hilt-compiler:${LibVersions.hiltAndroidx}"
 
 }
 

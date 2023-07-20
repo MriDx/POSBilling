@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
+import com.example.apptemplate.MainActivity
 import com.example.apptemplate.presentation.app.activity.AppActivity
 import com.example.apptemplate.presentation.auth.activity.AuthActivity
 import com.google.android.play.core.appupdate.AppUpdateInfo
@@ -16,10 +17,10 @@ import com.google.android.play.core.install.model.UpdateAvailability
 import dagger.hilt.android.AndroidEntryPoint
 import dev.mridx.common.common_data.data.constants.LOGGED_IN
 import dev.mridx.common.common_data.di.qualifier.AppPreference
+import dev.mridx.common.common_presentation.activity.BaseActivity
 import dev.mridx.common.common_utils.utils.POSITIVE_BTN
 import dev.mridx.common.common_utils.utils.showDialog
 import dev.mridx.common.common_utils.utils.startActivity
-import dev.mridx.common.common_presentation.activity.BaseActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -47,6 +48,10 @@ class RoutingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         splashScreen.setKeepOnScreenCondition { true }
+
+        startActivity(MainActivity::class.java)
+        finish()
+
 
         /**
          * will receive message in case of auto logged out

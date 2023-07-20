@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'dev.mridx.delayed_uploader'
+    compileSdk buildConfig.compileSdk
+
+    defaultConfig {
+        minSdk buildConfig.minSdk
+        targetSdk buildConfig.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled buildConfig.minifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled buildConfig.multiDexEnabled
+        }
+    }
+    compileOptions {
+        sourceCompatibility buildConfig.sourceCompatilibity
+        targetCompatibility buildConfig.targetCompatilibity
+    }
+    kotlinOptions {
+        jvmTarget = buildConfig.jvmTarget
+    }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation Dep.appCompat
+    implementation Dep.androidxCore
+    implementation Dep.androidMaterial
+    implementation Dep.constraintLayout
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation project(path: ':common:common_data')
+    implementation project(path: ':common:common_utils')
+
+    //kotlin ktx
+    implementation KTX.lifecycleRuntimeKTX
+    implementation KTX.lifecycleLiveDataKTX
+    implementation KTX.lifecycleViewModelKTX
+    implementation KTX.workRuntimeKTX
+
+
+    //hilt
+    implementation DaggerHilt.hilt
+    kapt DaggerHilt.hiltCompiler
+    implementation DaggerHilt.hiltWorkManager
+    kapt DaggerHilt.hiltAndroidxCompiler
+
+    //retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.gsonConvertor
+    implementation Retrofit.okHttp
+    implementation Retrofit.okHttpLogging
+
+    //room
+    implementation Room.roomKTX
+    implementation Room.roomRuntime
+    kapt Room.roomCompiler
+
+
+}

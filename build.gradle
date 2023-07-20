@@ -8,7 +8,9 @@ buildscript {
             targetSdk      : 33,
             minifyEnabled  : true,
             multiDexEnabled: true,
-            jvmTarget      : '17'
+            jvmTarget      : '17',
+            sourceCompatilibity: JavaVersion.VERSION_17,
+            targetCompatilibity: JavaVersion.VERSION_17,
     ]
     dependencies {
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.44'

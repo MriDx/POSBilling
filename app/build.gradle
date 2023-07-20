@@ -69,6 +69,7 @@ dependencies {
     implementation project(path: ':dynamic_form')
     //implementation project(path: ':auth')
     implementation project(path: ':common:common_presentation')
+    implementation project(path: ':delayed_uploader')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -111,6 +112,8 @@ dependencies {
 
     implementation DaggerHilt.hilt
     kapt DaggerHilt.hiltCompiler
+    implementation DaggerHilt.hiltWorkManager
+    kapt DaggerHilt.hiltAndroidxCompiler
 
 
     //retrofit
