@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -144,7 +145,23 @@ class MainActivity : AppCompatActivity() {
             handleSubmit()
         }
 
+        binding.jobsBtn.setOnClickListener {
+            getAllJobs()
+        }
 
+
+
+
+    }
+
+    private fun getAllJobs() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            delayedUploader.getAllJobs().forEachIndexed { index, duJobDataModel ->
+                Log.d("mridx", "getAllJobs: index  $index")
+                Log.d("mridx", "getAllJobs: $duJobDataModel")
+                Log.d("mridx", "getAllJobs: Ends")
+            }
+        }
     }
 
     private fun handleSubmit() {

@@ -135,4 +135,30 @@ interface DelayedUploaderDao {
     }
 
 
+    @Transaction
+    suspend fun getAllTasks(): List<DUJobDataModel> {
+        return withContext(Dispatchers.IO) {
+
+            val jobs = getAllJobs().map { jobDataModel ->
+                getDuJobDataModel(jobId = jobDataModel.jobId)
+            } ?: emptyList()
+
+
+            jobs
+
+        }
+    }
+
+
+    @Transaction
+    suspend fun getTasksByStatus(status: String) : List<DUJobDataModel> {
+        return withContext(Dispatchers.IO) {
+            val jobs = getJobsByStatus(jobStatus = status).map {jobDataModel ->
+                getDuJobDataModel(jobId = jobDataModel.jobId)
+            } ?: emptyList()
+            jobs
+        }
+    }
+
+
 }

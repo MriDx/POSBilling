@@ -8,8 +8,10 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import dev.mridx.delayed_uploader.data.constants.Constants
+import dev.mridx.delayed_uploader.data.constants.JOB_STATUS
 import dev.mridx.delayed_uploader.data.local.model.DUJob
 import dev.mridx.delayed_uploader.db.dao.DelayedUploaderDao
+import dev.mridx.delayed_uploader.db.entity.relation.DUJobDataModel
 import dev.mridx.delayed_uploader.jobs.FileUploadJob
 import dev.mridx.delayed_uploader.jobs.SubmissionJob
 import dev.mridx.delayed_uploader.utils.toHeaderString
@@ -86,6 +88,19 @@ class DelayedUploader @Inject constructor(private val delayedUploaderDao: Delaye
         }
 
 
+    }
+
+
+    suspend fun getAllJobs(): List<DUJobDataModel> {
+        return withContext(Dispatchers.IO) {
+            delayedUploaderDao.getAllTasks()
+        }
+    }
+
+    suspend fun getAllPendingJobs(): List<DUJobDataModel> {
+        return withContext(Dispatchers.IO) {
+            delayedUploaderDao.getTasksByStatus(JOB_STATUS.PENDING)
+        }
     }
 
 }
