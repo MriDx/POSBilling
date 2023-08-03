@@ -6,6 +6,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".utils.BaseApplication"
         android:allowBackup="true"
@@ -35,6 +36,15 @@
             </intent-filter>
 
         </activity>
+
+        <activity
+            android:name="dev.mridx.image_crop.ImageCropActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity"
+            android:theme="@style/Theme.Material3.DayNight"
+            />
+
 
         <activity
             android:name=".MainActivity"

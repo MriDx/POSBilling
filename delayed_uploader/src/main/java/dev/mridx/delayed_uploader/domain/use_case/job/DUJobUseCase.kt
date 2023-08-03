@@ -19,4 +19,11 @@ class DUJobUseCase @Inject constructor(
         return duRepository.submission(url = url, headers = headers, params = params)
     }
 
+    suspend fun submitJobDirect(
+        url: String,
+        params: JSONObject,
+    ): NetworkResource<ResponseModel<JsonElement>> {
+        return duRepository.submissionDirect(url = url, params = params)
+    }
+
 }

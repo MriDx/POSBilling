@@ -68,7 +68,7 @@ class ImageCropActivity : AppCompatActivity(), CropImageView.OnSetImageUriComple
     }
 
     override fun onSetImageUriComplete(view: CropImageView, uri: Uri, error: Exception?) {
-        TODO("Not yet implemented")
+
     }
 
     private lateinit var binding: ImageCropActivityBinding

@@ -38,7 +38,7 @@ object CommonModule {
     @Singleton
     @BaseUrl
     fun provideBaseUrl(): String =
-        if (BuildConfig.DEBUG) "http://hoarding.sumato.tech/" else "http://hoarding.sumato.tech/"
+        if (BuildConfig.DEBUG) "https://c0fc-2405-201-a802-1833-4071-91f0-739b-2005.ngrok-free.app/" else "http://jjm.sumato.tech/"
     //if (BuildConfig.DEBUG) "https://adcb-2405-201-a802-1833-35c0-2ab2-87d0-f7bb.ngrok-free.app/" else "https://irrigationassam.in/"
 
 

@@ -52,9 +52,15 @@ class SubmissionJob @AssistedInject constructor(
                 }
 
 
-                val response = duJobUseCase.submitJob(
+                /*val response = duJobUseCase.submitJob(
                     url = url,
                     headers = headers,
+                    params = submissionParameters
+                )*/
+
+
+                val response = duJobUseCase.submitJobDirect(
+                    url = url,
                     params = submissionParameters
                 )
 

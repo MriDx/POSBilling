@@ -12,6 +12,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/MriDx/keystore/office/universal.keystore')
+            storePassword 'sumato2021'
+            keyAlias 'release'
+            keyPassword 'sumato2021'
+        }
+    }
     namespace "com.example.apptemplate"
     compileSdk buildConfig.compileSdk
 
@@ -30,6 +38,7 @@ android {
             minifyEnabled buildConfig.minifyEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             multiDexEnabled buildConfig.multiDexEnabled
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -70,6 +79,7 @@ dependencies {
     //implementation project(path: ':auth')
     implementation project(path: ':common:common_presentation')
     implementation project(path: ':delayed_uploader')
+    implementation project(path: ':image_crop')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

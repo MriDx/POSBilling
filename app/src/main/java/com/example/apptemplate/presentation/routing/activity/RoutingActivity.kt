@@ -51,6 +51,7 @@ class RoutingActivity : BaseActivity() {
 
         startActivity(MainActivity::class.java)
         finish()
+        return
 
 
         /**

@@ -13,9 +13,6 @@ import dev.mridx.delayed_uploader.utils.getValueFromKey
 import dev.mridx.delayed_uploader.utils.toHeadersMap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 
@@ -54,28 +51,47 @@ class FileUploadJob @AssistedInject constructor(
                     throw Exception("File not found !")
                 }
 
-                val requestFile =
+                /*val requestFile =
                     fileToUpload.asRequestBody("application/octet-stream".toMediaType())
 
                 val multipartBody = MultipartBody.Part.createFormData(
                     filename = fileDataModel.uploadParam,
                     name = fileToUpload.name,
                     body = requestFile
-                )
+                )*/
 
-                val tmpHeaders = mutableMapOf<String, String>().apply {
-                    headers.entries.forEach { entry ->
-                        if (!entry.key.contentEquals("content-type", true)) {
-                            this[entry.key] = entry.value
-                        }
-                    }
-                }
+//                val tmpHeaders = headers
+//
+//                Log.d("mridx", "doWork: $tmpHeaders")
+//
+//                val headers111 = mapOf(
+//                    "Accept" to "application/json",
+//                    "Authorization" to "Bearer 191|vRgtimW6bL2ryrd3n5ZitBV2a1gHmDcHzcwjTrZQ"
+//                )
+
+//                val fileUploadResponse = fileUseCase.uploadFile(
+//                    url = url, headers = tmpHeaders, bodyPart = multipartBody
+//                )
+
+                /**
+                 * passing static header map as dynamic headers causing issue,
+                 *
+                 */
+
+                // TODO: needs to fix
+
+                val fileUploadHeader = mapOf(
+                    "Accept" to "application/json"
+                )
 
                 val fileUploadResponse = fileUseCase.uploadFile(
-                    url = url, headers = tmpHeaders, bodyPart = multipartBody
+                    url = url,
+                    headers = fileUploadHeader,
+                    filePath = fileDataModel.filePath,
+                    fileParam = fileDataModel.uploadParam
                 )
 
-                if (!fileUploadResponse.isFailed()) {
+                if (fileUploadResponse.isFailed()) {
                     throw Exception()
                 }
 

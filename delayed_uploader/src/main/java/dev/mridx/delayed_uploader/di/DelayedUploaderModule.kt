@@ -1,7 +1,6 @@
 package dev.mridx.delayed_uploader.di
 
 import android.content.Context
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,9 +13,7 @@ import dev.mridx.delayed_uploader.data.remote.web_service.DUApiService
 import dev.mridx.delayed_uploader.db.dao.DelayedUploaderDao
 import dev.mridx.delayed_uploader.db.database.DelayedUploaderDatabase
 import dev.mridx.delayed_uploader.domain.repository.DURepository
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -24,18 +21,20 @@ import javax.inject.Singleton
 object DelayedUploaderModule {
 
 
-    @Provides
+
+    /*@Provides
     @Singleton
     @DuRetrofit
     fun provideRetrofit(
         gson: Gson,
+        okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://google.com/")
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(OkHttpClient().newBuilder().build())
+            .client(okHttpClient)
             .build()
-    }
+    }*/
 
 
     @Provides

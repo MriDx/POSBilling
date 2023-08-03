@@ -5,7 +5,6 @@ import dev.mridx.common.common_data.data.remote.model.FileUploadResponseModel
 import dev.mridx.common.common_data.data.remote.model.NetworkResource
 import dev.mridx.common.common_data.data.remote.model.ResponseModel
 import dev.mridx.common.common_data.domain.repository.BaseRepository
-import okhttp3.MultipartBody
 import org.json.JSONObject
 
 interface DURepository : BaseRepository {
@@ -14,7 +13,14 @@ interface DURepository : BaseRepository {
     suspend fun uploadFile(
         url: String,
         headers: Map<String, String>,
-        part: MultipartBody.Part,
+        filePath: String,
+        fileParam: String,
+    ): NetworkResource<FileUploadResponseModel>
+
+    suspend fun uploadFileDirect(
+        url: String,
+        filePath: String,
+        fileParam: String,
     ): NetworkResource<FileUploadResponseModel>
 
 
@@ -22,7 +28,13 @@ interface DURepository : BaseRepository {
         url: String,
         headers: Map<String, String>,
         params: JSONObject,
-    ):  NetworkResource<ResponseModel<JsonElement>>
+    ): NetworkResource<ResponseModel<JsonElement>>
+
+
+    suspend fun submissionDirect(
+        url: String,
+        params: JSONObject,
+    ): NetworkResource<ResponseModel<JsonElement>>
 
 
 }

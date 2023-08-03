@@ -17,9 +17,27 @@ interface DUApiHelper {
     ): Response<FileUploadResponseModel>
 
 
+    suspend fun uploadFileDirect(
+        url: String,
+        bodyPart: MultipartBody.Part,
+    ): Response<FileUploadResponseModel>
+
+    suspend fun uploadFileNew(
+        url: String,
+        authorization: String,
+        accept: String,
+        bodyPart: MultipartBody.Part,
+    ): Response<FileUploadResponseModel>
+
+
     suspend fun submission(
         url: String,
         headers: Map<String, String>,
+        params: RequestBody,
+    ): Response<ResponseModel<JsonElement>>
+
+    suspend fun submissionDirect(
+        url: String,
         params: RequestBody,
     ): Response<ResponseModel<JsonElement>>
 
