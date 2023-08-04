@@ -42,7 +42,7 @@ class RadioInput : LinearLayoutCompat, DynamicField {
     private var options =
         arrayOf("Mithicher", "Fardeen", "Partha", "Vaibhav", "Moni Kongkan", "Manash")
 
-    private var values =
+    private var optionValues =
         arrayOf("Mithicher", "Fardeen", "Partha", "Vaibhav", "Moni Kongkan", "Manash")
 
 
@@ -62,8 +62,12 @@ class RadioInput : LinearLayoutCompat, DynamicField {
 
     override fun getValue(): String {
         if (!validate()) return ""
-        val selectedIndex = binding.radioGroup.indexOfChild(binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId))
-        return values[selectedIndex]
+        val selectedIndex = binding.radioGroup.indexOfChild(
+            binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId)
+        )
+        return if (optionValues.isEmpty()) binding.radioGroup.findViewById<MaterialRadioButton>(
+            binding.radioGroup.checkedRadioButtonId
+        ).text.toString() else optionValues[selectedIndex]
         //return binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId).text.toString()
     }
 
@@ -76,8 +80,8 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         renderOptions()
     }
 
-    fun setValues(values: Array<String>) {
-        this.values = values
+    fun setOptionValues(values: Array<String>) {
+        optionValues = values
     }
 
 

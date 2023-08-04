@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
         binding.radioInputField.apply {
             setOptions(arrayOf("1", "2", "3", "4", "5"))
             setRadioOrientation(LinearLayout.VERTICAL)
-            setValues(arrayOf("01", "02", "03", "04", "05"))
+            setOptionValues(arrayOf("01", "02", "03", "04", "05"))
         }
 
         binding.inputField.apply {

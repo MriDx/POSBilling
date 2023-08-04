@@ -62,9 +62,12 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
         binding.dropdownField.setText(value)
     }
 
+    private var selectedOptionIndex = -1
 
     override fun getValue(): String {
-        return binding.dropdownField.text.toString()
+        //return binding.dropdownField.text.toString()
+        if (selectedOptionIndex == -1) return ""
+        return if (optionValues.isEmpty()) binding.dropdownField.text.toString() else optionValues[selectedOptionIndex]
     }
 
     override fun validate(): Boolean {
@@ -101,6 +104,13 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
 
     fun showErrorMessage(errorMessage: String?) {
         binding.dropdownFieldLayout.error = errorMessage ?: this.errorMessage
+    }
+
+
+    private var optionValues = arrayOf<String>()
+
+    fun setOptionValues(values: Array<String>) {
+        optionValues = values
     }
 
     fun setOptions(options: Array<String>) {
