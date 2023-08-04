@@ -2,7 +2,7 @@ package dev.mridx.dynamic_form.utils
 
 object DynamicFieldType {
 
-    const val TEXT_INPUT = "simple_text_input"
+    const val TEXT_INPUT = "text_input"
     const val MOBILE_INPUT = "mobile_input"
     const val DROP_DOWN = "drop_down"
     const val DATE_INPUT = "date_input"
