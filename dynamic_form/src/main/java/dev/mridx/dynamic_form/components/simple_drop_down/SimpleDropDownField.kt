@@ -51,7 +51,7 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
     }
 
 
-    fun setHeading(heading: String) {
+    override fun setHeading(heading: String) {
         binding.headingView.text = heading
     }
 
@@ -107,6 +107,10 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
         binding.dropdownField.apply {
             setSimpleItems(options)
         }
+    }
+
+    override fun getName(): String {
+        return fieldName
     }
 
 }

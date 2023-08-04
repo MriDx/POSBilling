@@ -42,7 +42,7 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
         binding.textInputView.hint = hint
     }
 
-    fun setHeading(heading: String) {
+    override fun setHeading(heading: String) {
         binding.headingView.text = heading
     }
 
@@ -120,6 +120,10 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
     open fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
 
+    }
+
+    override fun getName(): String {
+        return fieldName
     }
 
 
