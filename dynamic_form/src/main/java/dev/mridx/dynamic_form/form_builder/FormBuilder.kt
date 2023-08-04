@@ -17,6 +17,7 @@ import dev.mridx.dynamic_form.components.simple_file_field.SimpleImageField
 import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInput
 import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInputType
 import dev.mridx.dynamic_form.data.model.DynamicFieldModel
+import dev.mridx.dynamic_form.utils.DynamicFieldType
 import dev.mridx.dynamic_form.utils.dpToInt
 import org.json.JSONArray
 import org.json.JSONObject
@@ -56,11 +57,7 @@ class FormBuilder : LinearLayoutCompat {
         val validated = children.map {
             (it as DynamicField).validate()
         }.toList()
-        //Log.d("mridx", "validateFields: $validated - ${validated.any { it }}")
-        return validated.any { it }
-        /*return children.all {
-            (it as DynamicField).validate()
-        }*/
+        return validated.all { it }
     }
 
     fun getValues(): List<JSONObject> {
@@ -68,7 +65,8 @@ class FormBuilder : LinearLayoutCompat {
         return children.mapIndexed { index, view ->
             JSONObject().apply {
                 put("heading", fields[index].heading)
-                put("answer", (view as DynamicField).getValue())
+                put("name", fields[index].name)
+                put("value", (view as DynamicField).getValue())
             }
         }.toList()
 
@@ -158,7 +156,7 @@ class FormBuilder : LinearLayoutCompat {
 
         fields.forEachIndexed { index, dynamicFieldModel ->
             when (dynamicFieldModel.type) {
-                "text_input" -> {
+                DynamicFieldType.TEXT_INPUT -> {
                     val field = SimpleTextInput(context).apply {
                         setHeading(heading = dynamicFieldModel.heading)
                         fieldName = dynamicFieldModel.name ?: ""
@@ -187,7 +185,7 @@ class FormBuilder : LinearLayoutCompat {
                     addView(field)
                 }
 
-                "mobile_input" -> {
+                DynamicFieldType.MOBILE_INPUT -> {
                     val field = MobileNumberField(context).apply {
                         setHeading(heading = dynamicFieldModel.heading)
                         fieldName = dynamicFieldModel.name ?: ""
@@ -215,7 +213,7 @@ class FormBuilder : LinearLayoutCompat {
                     addView(field)
                 }
 
-                "choice_field" -> {
+                DynamicFieldType.DROP_DOWN -> {
                     val field = SimpleDropDownField(context).apply {
                         setHeading(heading = dynamicFieldModel.heading)
                         fieldName = dynamicFieldModel.name ?: ""
@@ -243,7 +241,7 @@ class FormBuilder : LinearLayoutCompat {
                     addView(field)
                 }
 
-                "date_input" -> {
+                DynamicFieldType.DATE_INPUT -> {
                     val field = DateInputField(context).apply {
                         setFragment(fragment = fragment)
                         setHeading(heading = dynamicFieldModel.heading)
@@ -272,7 +270,7 @@ class FormBuilder : LinearLayoutCompat {
                     addView(field)
                 }
 
-                "multiline_input" -> {
+                DynamicFieldType.MULTILINE_INPUT -> {
                     val field = SimpleTextInput(context).apply {
                         setHeading(heading = dynamicFieldModel.heading)
                         fieldName = dynamicFieldModel.name ?: ""
@@ -302,7 +300,7 @@ class FormBuilder : LinearLayoutCompat {
                     addView(field)
                 }
 
-                "image_field" -> {
+                DynamicFieldType.IMAGE_INPUT -> {
                     val field = SimpleImageField(context).apply {
                         layoutParams = LinearLayoutCompat.LayoutParams(
                             ViewGroup.MarginLayoutParams(

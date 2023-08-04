@@ -78,7 +78,7 @@ class SimpleImageField : LinearLayoutCompat, SimpleFileField {
         binding.uploadHint.text = hint
     }
 
-    fun setHeading(heading: String) {
+    override fun setHeading(heading: String) {
         binding.headingView.text = heading
     }
 
@@ -171,4 +171,9 @@ class SimpleImageField : LinearLayoutCompat, SimpleFileField {
             setImage(uri = file.toUri())
         }
     }
+
+    override fun getName(): String {
+        return ""
+    }
+
 }

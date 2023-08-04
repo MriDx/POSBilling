@@ -8,31 +8,40 @@
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/parentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/imageView" />
+            android:layout_height="200dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
             android:id="@+id/submitBtn"
-            />
-
-        <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jobs"
+            android:text="Submit" />
+
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/jobsBtn"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jobs" />
+
+        <dev.mridx.dynamic_form.components.radio_input.RadioInput
+            android:id="@+id/radioInputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInput
+            android:id="@+id/inputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

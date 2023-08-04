@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ import dev.mridx.delayed_uploader.data.local.model.DUFileParameter
 import dev.mridx.delayed_uploader.data.local.model.DUJob
 import dev.mridx.delayed_uploader.data.local.model.DUNetworkConfiguration
 import dev.mridx.delayed_uploader.data.local.model.DUNotificationConfiguration
+import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInputType
 import dev.mridx.image_crop.ImageCropActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -146,12 +148,39 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.jobsBtn.setOnClickListener {
-            getAllJobs()
+            //getAllJobs()
+            getCheckedValue()
+        }
+
+
+        binding.radioInputField.apply {
+            setOptions(arrayOf("1", "2", "3", "4", "5"))
+            setRadioOrientation(LinearLayout.VERTICAL)
+        }
+
+        binding.inputField.apply {
+            setHeading("Write something !")
+            setInputType(SimpleTextInputType.NUMBER_SIGNED)
         }
 
 
 
 
+
+    }
+
+    private fun getCheckedValue() {
+        Log.d("mridx", "getCheckedValue: ${binding.radioInputField.getValue()}")
+        Log.d("mridx", "getCheckedValue: ${binding.inputField.getValue()}")
+
+
+        /*binding.parentLayout.children.forEach {
+            Log.d("mridx", "getCheckedValue: ${it.javaClass.name}")
+            if (it is RadioInput) {
+                Log.d("mridx", "getCheckedValue: ${(it as RadioInput).getValue()}")
+            }
+        }
+*/
     }
 
     private fun getAllJobs() {
