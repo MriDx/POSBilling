@@ -176,4 +176,17 @@ class SimpleImageField : LinearLayoutCompat, SimpleFileField {
         return ""
     }
 
+    override fun showErrorMessage(errorMessage: String) {
+        //
+    }
+
+
+    override fun setHint(hint: String) {
+        //
+    }
+
+    override fun setValue(value: String) {
+        //
+    }
+
 }

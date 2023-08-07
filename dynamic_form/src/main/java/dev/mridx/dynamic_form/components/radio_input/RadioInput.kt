@@ -42,7 +42,7 @@ class RadioInput : LinearLayoutCompat, DynamicField {
     private var options =
         arrayOf("Mithicher", "Fardeen", "Partha", "Vaibhav", "Moni Kongkan", "Manash")
 
-    private var values =
+    private var optionValues =
         arrayOf("Mithicher", "Fardeen", "Partha", "Vaibhav", "Moni Kongkan", "Manash")
 
 
@@ -56,14 +56,26 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         binding.headingView.text = heading
     }
 
+    override fun setHint(hint: String) {
+        //
+    }
+
+    override fun setValue(value: String) {
+        //
+    }
+
     override fun validate(): Boolean {
         return binding.radioGroup.checkedRadioButtonId != -1
     }
 
     override fun getValue(): String {
         if (!validate()) return ""
-        val selectedIndex = binding.radioGroup.indexOfChild(binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId))
-        return values[selectedIndex]
+        val selectedIndex = binding.radioGroup.indexOfChild(
+            binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId)
+        )
+        return if (optionValues.isEmpty()) binding.radioGroup.findViewById<MaterialRadioButton>(
+            binding.radioGroup.checkedRadioButtonId
+        ).text.toString() else optionValues[selectedIndex]
         //return binding.radioGroup.findViewById<MaterialRadioButton>(binding.radioGroup.checkedRadioButtonId).text.toString()
     }
 
@@ -71,13 +83,33 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         return fieldName
     }
 
+
+
+    /**
+     * set radio options
+     *
+     * NOTE: may not exceed 3 options, use dropdown for more options
+     *
+     * @param options
+     *
+     */
     fun setOptions(options: Array<String>) {
         this.options = options
         renderOptions()
     }
 
-    fun setValues(values: Array<String>) {
-        this.values = values
+    /**
+     * set values to represent the selected options
+     *
+     * NOTE: values length must be same as options.
+     *
+     * USE CASE: UI options -> Yes, No --> value to post -> true, false
+     *
+     * @param values
+     *
+     */
+    fun setOptionValues(values: Array<String>) {
+        optionValues = values
     }
 
 
@@ -105,5 +137,9 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         binding.radioGroup.check(firstItem.id)
     }
 
+
+    override fun showErrorMessage(errorMessage: String) {
+        //
+    }
 
 }

@@ -18,4 +18,5 @@ data class DynamicFieldModel(
     val max_length: Int? = null,
     val min_length: Int? = null,
     val options: List<String>? = null,
+    val values: List<String>? = null,
 ) : Parcelable

@@ -45,27 +45,31 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
     }
 
 
-    private var hint = ""
-    fun setHint(hint: String) {
+    var required: Boolean = false
+    private var selectedOptionIndex = -1
+    var errorMessage: String = "Select an option."
+    var fieldName: String = ""
+    private var optionValues = arrayOf<String>()
+
+
+    override fun setHint(hint: String) {
         binding.dropdownField.hint = hint
     }
-
 
     override fun setHeading(heading: String) {
         binding.headingView.text = heading
     }
 
-    var required: Boolean = false
-
-
-    fun setValue(value: String) {
+    override fun setValue(value: String) {
         binding.dropdownField.setText(value)
     }
 
-
     override fun getValue(): String {
-        return binding.dropdownField.text.toString()
+        //return binding.dropdownField.text.toString()
+        if (selectedOptionIndex == -1) return ""
+        return if (optionValues.isEmpty()) binding.dropdownField.text.toString() else optionValues[selectedOptionIndex]
     }
+
 
     override fun validate(): Boolean {
         val value = getValue()
@@ -75,10 +79,6 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
         }
         return true
     }
-
-
-    var errorMessage: String = "Select an option."
-
 
     fun setPrefix(prefix: String) {
         binding.dropdownFieldLayout.prefixText = prefix
@@ -91,16 +91,18 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
     open fun validateField(): Boolean {
         val value = binding.dropdownField.text.toString()
         if (required && value.isEmpty()) {
-            binding.dropdownFieldLayout.error = errorMessage
+            showPrivateErrorMessage(errorMessage)
             return false
         }
         return true
     }
 
-    var fieldName: String = ""
-
-    fun showErrorMessage(errorMessage: String?) {
+    private fun showPrivateErrorMessage(errorMessage: String?) {
         binding.dropdownFieldLayout.error = errorMessage ?: this.errorMessage
+    }
+
+    fun setOptionValues(values: Array<String>) {
+        optionValues = values
     }
 
     fun setOptions(options: Array<String>) {
@@ -112,5 +114,10 @@ open class SimpleDropDownField : LinearLayoutCompat, DynamicField {
     override fun getName(): String {
         return fieldName
     }
+
+    override fun showErrorMessage(errorMessage: String) {
+        binding.dropdownFieldLayout.error = errorMessage
+    }
+
 
 }

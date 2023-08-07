@@ -38,21 +38,19 @@ class MobileNumberField : SimpleTextInput {
 
     }
 
-    override fun validate(): Boolean {
-        return validateField()
-    }
 
     override fun validateField(): Boolean {
         val value = getValue()
         if (value.isNotEmpty() || required) {
             val valid = value.isPhoneNumber()
             if (!valid) {
-                showErrorMessage(errorMessage = errorMessage)
+                showPrivateErrorMessage(errorMessage = errorMessage)
             }
             return valid
         }
         return true
     }
+
 
 
 

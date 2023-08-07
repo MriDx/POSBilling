@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import dev.mridx.dynamic_form.components.date_input.DateInputField
 import dev.mridx.dynamic_form.components.dynamic_field.DynamicField
 import dev.mridx.dynamic_form.components.mobile_number.MobileNumberField
+import dev.mridx.dynamic_form.components.radio_input.RadioInput
 import dev.mridx.dynamic_form.components.simple_drop_down.SimpleDropDownField
 import dev.mridx.dynamic_form.components.simple_file_field.SimpleImageField
 import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInput
@@ -222,6 +223,36 @@ class FormBuilder : LinearLayoutCompat {
                         setPrefix(dynamicFieldModel.prefix ?: "")
                         setSuffix(dynamicFieldModel.suffix ?: "")
                         setOptions(options = dynamicFieldModel.options?.toTypedArray() ?: arrayOf())
+                        setOptionValues(values = dynamicFieldModel.values?.toTypedArray() ?: arrayOf())
+                        layoutParams = LinearLayoutCompat.LayoutParams(
+                            ViewGroup.MarginLayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            ).apply {
+                                updateMargins(
+                                    left = dpToInt(context, size = 0),
+                                    right = dpToInt(context, size = 0),
+                                    top = dpToInt(context, size = 16),
+                                    bottom = 0
+                                )
+                            }
+                        )
+                        id = ViewCompat.generateViewId()
+                    }
+                    dynamicFieldModel.viewId = field.id
+                    addView(field)
+                }
+
+                DynamicFieldType.CHOICE_INPUT -> {
+                    val field = RadioInput(context).apply {
+                        setHeading(heading = dynamicFieldModel.heading)
+                        fieldName = dynamicFieldModel.name ?: ""
+                        //setHint(hint = dynamicFieldModel.hint ?: "Select")
+                        //required = dynamicFieldModel.required
+                        //setPrefix(dynamicFieldModel.prefix ?: "")
+                        //setSuffix(dynamicFieldModel.suffix ?: "")
+                        setOptions(options = dynamicFieldModel.options?.toTypedArray() ?: arrayOf())
+                        setOptionValues(values = dynamicFieldModel.values?.toTypedArray() ?: arrayOf())
                         layoutParams = LinearLayoutCompat.LayoutParams(
                             ViewGroup.MarginLayoutParams(
                                 ViewGroup.LayoutParams.MATCH_PARENT,
