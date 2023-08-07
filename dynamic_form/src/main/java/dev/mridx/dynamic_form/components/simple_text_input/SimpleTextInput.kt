@@ -38,18 +38,20 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
 
 
     private var hint = ""
-    fun setHint(hint: String) {
-        binding.textInputView.hint = hint
-    }
+    var required: Boolean = false
+    var errorMessage: String = "Field can not be blank."
+    var fieldName: String = ""
+
 
     override fun setHeading(heading: String) {
         binding.headingView.text = heading
     }
 
-    var required: Boolean = false
+    override fun setHint(hint: String) {
+        binding.textInputView.hint = hint
+    }
 
-
-    fun setValue(value: String) {
+    override fun setValue(value: String) {
         binding.textInputView.setText(value)
     }
 
@@ -57,12 +59,19 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
         return binding.textInputView.text.toString()
     }
 
+    override fun getName(): String {
+        return fieldName
+    }
+
+
     override fun validate(): Boolean {
         return validateField()
     }
 
 
-    var errorMessage: String = "Field can not be blank."
+    override fun showErrorMessage(errorMessage: String) {
+        binding.textInputLayout.error = errorMessage
+    }
 
 
     fun setPrefix(prefix: String) {
@@ -90,19 +99,9 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
         return true
     }
 
-    var fieldName: String = ""
 
     fun setMaxLength(length: Int) {
         binding.textInputView.filters = arrayOf(InputFilter.LengthFilter(length))
-    }
-
-    fun countedEnabled(maxCounter: Int) {
-        binding.textInputLayout.isCounterEnabled = true
-        binding.textInputLayout.counterMaxLength = maxCounter
-    }
-
-    fun showErrorMessage(errorMessage: String?) {
-        binding.textInputLayout.error = errorMessage ?: this.errorMessage
     }
 
     fun setMaxLines(maxLine: Int) {
@@ -113,17 +112,23 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
         binding.textInputView.minLines = minLine
     }
 
-    private fun initialRender(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        render(context, attrs, defStyleAttr)
+
+    fun countedEnabled(maxCounter: Int) {
+        binding.textInputLayout.isCounterEnabled = true
+        binding.textInputLayout.counterMaxLength = maxCounter
     }
+
+    fun showPrivateErrorMessage(errorMessage: String?) {
+        binding.textInputLayout.error = errorMessage ?: this.errorMessage
+    }
+
 
     open fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-
-
+        //
     }
 
-    override fun getName(): String {
-        return fieldName
+    private fun initialRender(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
+        render(context, attrs, defStyleAttr)
     }
 
 

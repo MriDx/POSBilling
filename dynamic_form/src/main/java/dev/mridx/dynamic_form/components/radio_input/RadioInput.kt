@@ -56,6 +56,14 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         binding.headingView.text = heading
     }
 
+    override fun setHint(hint: String) {
+        //
+    }
+
+    override fun setValue(value: String) {
+        //
+    }
+
     override fun validate(): Boolean {
         return binding.radioGroup.checkedRadioButtonId != -1
     }
@@ -75,11 +83,31 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         return fieldName
     }
 
+
+
+    /**
+     * set radio options
+     *
+     * NOTE: may not exceed 3 options, use dropdown for more options
+     *
+     * @param options
+     *
+     */
     fun setOptions(options: Array<String>) {
         this.options = options
         renderOptions()
     }
 
+    /**
+     * set values to represent the selected options
+     *
+     * NOTE: values length must be same as options.
+     *
+     * USE CASE: UI options -> Yes, No --> value to post -> true, false
+     *
+     * @param values
+     *
+     */
     fun setOptionValues(values: Array<String>) {
         optionValues = values
     }
@@ -109,5 +137,9 @@ class RadioInput : LinearLayoutCompat, DynamicField {
         binding.radioGroup.check(firstItem.id)
     }
 
+
+    override fun showErrorMessage(errorMessage: String) {
+        //
+    }
 
 }
