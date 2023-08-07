@@ -82,7 +82,6 @@ class DelayedUploader @Inject constructor(private val delayedUploaderDao: Delaye
             WorkManager.getInstance(context).beginWith(fileUploadJobList).then(submissionJob)
                 .enqueue()
 
-            //  WorkManager.getInstance(context).enqueue(fileUploadJobList)
 
 
         }
@@ -100,6 +99,12 @@ class DelayedUploader @Inject constructor(private val delayedUploaderDao: Delaye
     suspend fun getAllPendingJobs(): List<DUJobDataModel> {
         return withContext(Dispatchers.IO) {
             delayedUploaderDao.getTasksByStatus(JOB_STATUS.PENDING)
+        }
+    }
+
+    suspend fun getJobByStatus(status: String) : List<DUJobDataModel> {
+        return withContext(Dispatchers.IO) {
+            delayedUploaderDao.getTasksByStatus(status = status)
         }
     }
 
