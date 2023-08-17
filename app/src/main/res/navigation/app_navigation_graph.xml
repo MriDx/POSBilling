@@ -51,4 +51,12 @@
         android:id="@+id/notificationSettingsFragment"
         android:name="com.example.apptemplate.presentation.app.fragment.notification.settings.NotificationSettingsFragment"
         android:label="Notification Settings" />
+    <fragment
+        android:id="@+id/imageViewFragment"
+        android:name="com.example.apptemplate.presentation.app.fragment.image_view.ImageViewFragment"
+        android:label="ImageViewFragment" >
+        <argument
+            android:name="imageViewModel"
+            app:argType="com.example.apptemplate.data.local.model.media.ImageViewModel" />
+    </fragment>
 </navigation>

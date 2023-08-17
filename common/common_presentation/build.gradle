@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -58,6 +60,7 @@ dependencies {
     //implementation KTX.navigationRuntimeKTX
     //implementation KTX.navigationFragmentKTX
     //implementation KTX.navigationUIKTX
+    implementation KTX.pagingRuntimeKTX
 
     implementation KTX.lifecycleViewModelKTX
 
@@ -67,10 +70,18 @@ dependencies {
 
     //common data
     implementation project(path: ':common:common_data')
+    implementation project(path: ':common:common_utils')
 
 
     //lottie
     implementation Misc.lottie
+
+
+    //hilt
+    implementation DaggerHilt.hilt
+    kapt DaggerHilt.hiltCompiler
+    implementation DaggerHilt.hiltWorkManager
+    kapt DaggerHilt.hiltAndroidxCompiler
 
 
 }
