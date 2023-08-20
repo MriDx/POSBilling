@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:825260714373:android:2b8594613f4c1b2c8e7cec",
         "android_client_info": {
-          "package_name": "com.example.apptemplate"
+          "package_name": "dev.techmess.gym_mem"
         }
       },
       "oauth_client": [

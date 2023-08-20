@@ -20,11 +20,11 @@ android {
             keyPassword 'sumato2021'
         }
     }
-    namespace "com.example.apptemplate"
+    namespace "dev.techmess.gym_mem"
     compileSdk buildConfig.compileSdk
 
     defaultConfig {
-        //applicationId "com.example.apptemplate"
+        //applicationId "dev.techmess.gym_mem"
         minSdk buildConfig.minSdk
         targetSdk buildConfig.targetSdk
         versionCode 1

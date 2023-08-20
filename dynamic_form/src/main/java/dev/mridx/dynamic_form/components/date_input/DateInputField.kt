@@ -2,9 +2,11 @@ package dev.mridx.dynamic_form.components.date_input
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInput
+import dev.mridx.dynamic_form.components.simple_text_input.SimpleTextInputType
 import dev.mridx.dynamic_form.utils.SimpleDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -31,14 +33,21 @@ class DateInputField : SimpleTextInput {
     override fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         super.render(context, attrs, defStyleAttr)
 
-        isFocusable = false
-        isFocusableInTouchMode = false
+
+        controlFocusable(enableFocus = false)
+
+        setInputType(inputType = SimpleTextInputType.DATE)
 
         errorMessage = "Date is empty."
 
         binding.textInputView.setOnClickListener {
             openAndHandleDatePickerDialog()
         }
+
+
+        Log.d("mridx", "render: $isFocusable")
+        Log.d("mridx", "render: $isFocusableInTouchMode")
+
 
     }
 

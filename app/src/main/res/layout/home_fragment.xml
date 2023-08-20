@@ -37,7 +37,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0" />
 
-                <com.google.android.material.card.MaterialCardView
+                <!--<com.google.android.material.card.MaterialCardView
                     android:id="@+id/userInfoCard"
                     style="?attr/materialCardViewFilledStyle"
                     android:layout_width="match_parent"
@@ -136,6 +136,48 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+                </com.google.android.material.card.MaterialCardView>-->
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentPadding="16dp"
+                    android:layout_margin="12dp"
+                    style="?attr/materialCardViewFilledStyle"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Welcome"
+                            android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            tools:text="Robert Downey Jr."
+                            android:id="@+id/nameView"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceBodyLarge"
+                            tools:text="Stay Fit Gym"
+                            android:id="@+id/gymNameView"
+                            />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
                 </com.google.android.material.card.MaterialCardView>
 
                 <include
@@ -150,7 +192,7 @@
                     />
 
 
-                <com.mridx.morse.element.BannerView
+               <!-- <com.mridx.morse.element.BannerView
                     android:id="@+id/bannerView"
                     android:layout_width="match_parent"
                     android:layout_height="194dp"
@@ -161,7 +203,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/userInfoCard"
-                    app:layout_constraintVertical_bias="0" />
+                    app:layout_constraintVertical_bias="0"
+                    android:visibility="gone"
+                    />-->
 
                 <com.mridx.premaderecyclerview.PremadeRecyclerView
                     android:id="@+id/actionHolder"

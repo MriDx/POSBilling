@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         maven { url("https://jitpack.io") }
     }
 }
-rootProject.name = "AppTemplateMultiModule"
+rootProject.name = "Gym Mem"
 include ':app'
 include ':common:common_data'
 include ':common:common_utils'

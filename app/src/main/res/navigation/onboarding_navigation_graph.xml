@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onboarding_navigation_graph"
+    app:startDestination="@id/gymRegistrationFragment">
+
+    <fragment
+        android:id="@+id/gymRegistrationFragment"
+        android:name="dev.techmess.gym_mem.presentation.onboarding.fragment.gym_registration.GymRegistrationFragment"
+        android:label="GymRegistrationFragment" >
+        <action
+            android:id="@+id/action_gymRegistrationFragment_to_appActivity2"
+            app:destination="@id/appActivity2" />
+    </fragment>
+    <activity
+        android:id="@+id/appActivity2"
+        android:name="dev.techmess.gym_mem.presentation.app.activity.AppActivity"
+        android:label="AppActivity" />
+</navigation>

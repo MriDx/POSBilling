@@ -281,7 +281,7 @@ class FormBuilder : LinearLayoutCompat {
                         required = dynamicFieldModel.required
                         setPrefix(dynamicFieldModel.prefix ?: "")
                         setSuffix(dynamicFieldModel.suffix ?: "")
-                        setActionKey(actionKey = EditorInfo.IME_ACTION_NEXT)
+                        //setActionKey(actionKey = EditorInfo.IME_ACTION_NEXT)
                         layoutParams = LinearLayoutCompat.LayoutParams(
                             ViewGroup.MarginLayoutParams(
                                 ViewGroup.LayoutParams.MATCH_PARENT,

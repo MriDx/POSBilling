@@ -1,4 +1,4 @@
-package com.example.apptemplate
+package dev.techmess.gym_mem
 
 import org.junit.Test
 

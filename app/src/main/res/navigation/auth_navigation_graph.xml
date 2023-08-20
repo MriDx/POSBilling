@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.apptemplate.presentation.auth.fragment.login.LoginFragment"
+        android:name="dev.techmess.gym_mem.presentation.auth.fragment.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_webViewFragment2"
@@ -17,17 +17,17 @@
     </fragment>
     <fragment
         android:id="@+id/webViewFragment2"
-        android:name="com.example.apptemplate.presentation.app.fragment.web_view.WebViewFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.web_view.WebViewFragment"
         android:label="{title}">
         <argument
             android:name="webViewModel"
-            app:argType="com.example.apptemplate.data.local.model.web_view.WebViewModel" />
+            app:argType="dev.techmess.gym_mem.data.local.model.web_view.WebViewModel" />
         <argument
             android:name="title"
             app:argType="string" />
     </fragment>
     <activity
         android:id="@+id/appActivity"
-        android:name="com.example.apptemplate.presentation.app.activity.AppActivity"
+        android:name="dev.techmess.gym_mem.presentation.app.activity.AppActivity"
         android:label="AppActivity" />
 </navigation>

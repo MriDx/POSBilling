@@ -132,4 +132,12 @@ open class SimpleTextInput : LinearLayoutCompat, DynamicField {
     }
 
 
+    fun controlFocusable(enableFocus: Boolean) {
+        binding.textInputView.apply {
+            isFocusable = enableFocus
+            isFocusableInTouchMode = enableFocus
+        }
+    }
+
+
 }

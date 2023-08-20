@@ -5,15 +5,18 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.apptemplate.presentation.app.fragment.home.HomeFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.home.HomeFragment"
         android:label="@string/app_name">
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addMemberFragment"
+            app:destination="@id/addMemberFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.apptemplate.presentation.app.fragment.settings.SettingsFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.settings.SettingsFragment"
         android:label="Settings">
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
@@ -30,33 +33,37 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.apptemplate.presentation.user.fragment.profile.ProfileFragment"
+        android:name="dev.techmess.gym_mem.presentation.user.fragment.profile.ProfileFragment"
         android:label="Profile" />
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.example.apptemplate.presentation.app.fragment.web_view.WebViewFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.web_view.WebViewFragment"
         android:label="{title}">
         <argument
             android:name="webViewModel"
-            app:argType="com.example.apptemplate.data.local.model.web_view.WebViewModel" />
+            app:argType="dev.techmess.gym_mem.data.local.model.web_view.WebViewModel" />
         <argument
             android:name="title"
             app:argType="string" />
     </fragment>
     <dialog
         android:id="@+id/logoutFragment"
-        android:name="com.example.apptemplate.presentation.auth.fragment.logout.LogoutFragment"
+        android:name="dev.techmess.gym_mem.presentation.auth.fragment.logout.LogoutFragment"
         android:label="LogoutFragment" />
     <fragment
         android:id="@+id/notificationSettingsFragment"
-        android:name="com.example.apptemplate.presentation.app.fragment.notification.settings.NotificationSettingsFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.notification.settings.NotificationSettingsFragment"
         android:label="Notification Settings" />
     <fragment
         android:id="@+id/imageViewFragment"
-        android:name="com.example.apptemplate.presentation.app.fragment.image_view.ImageViewFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.image_view.ImageViewFragment"
         android:label="ImageViewFragment" >
         <argument
             android:name="imageViewModel"
-            app:argType="com.example.apptemplate.data.local.model.media.ImageViewModel" />
+            app:argType="dev.techmess.gym_mem.data.local.model.media.ImageViewModel" />
     </fragment>
+    <fragment
+        android:id="@+id/addMemberFragment"
+        android:name="dev.techmess.gym_mem.presentation.app.fragment.member.add.AddMemberFragment"
+        android:label="New Member" />
 </navigation>
